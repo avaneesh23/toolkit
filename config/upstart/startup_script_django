@@ -1,0 +1,6 @@
+description "Euprime Django Platform"
+start on runlevel [2345]
+stop on runlevel [06]
+respawn
+respawn limit 10 5
+exec /home/ubuntu/git/toolkit/config/upstart/start_django.sh

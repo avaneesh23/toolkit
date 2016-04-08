@@ -1,0 +1,55 @@
+<html>
+	<head>
+	<script>
+function getresult(apiMethod,data) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("demo").innerHTML = xhttp.responseText;
+    }
+    else if (xhttp.readyState == 4 && xhttp.status != 200){
+    	document.getElementById("demo").innerHTML = "Http status "+xhttp.status +" : "+ xhttp.responseText;
+    }
+  };
+  xhttp.open("POST", "/api/", true);
+  xhttp.send(
+  	JSON.stringify({
+  	"apiMethod" : apiMethod,
+    "data": data
+}));
+}
+
+function cochransQ(){
+ 	apiMethod = "cochransq"
+ 	data = [[1,1,1,0], [0,1,0,1] ,[1,0,0,0], [0,1,1,1],[1,0,1,1], [1,0,1,0], [1,1,1,1],[0,0,1,1],[1,0,0,0], [1,1,1,0],[0,0,1,0],[0,1,1,1], [1,0,0,1], [1,0,0,1], [0,0,1,0] ,[1,1,0,0], [1,1,1,1], [0,0,0,0],[1,0,1,0] ,[0,0,0,0]]
+ 	getresult(apiMethod,data)
+}
+ 
+function fishersExactTest(){
+ 	apiMethod = "fishersexacttest"
+ 	data = [[7,1],[3,9]]
+ 	getresult(apiMethod,data)
+}
+
+</script>		
+	</head>
+	<body>
+		
+		<button type="button" onclick="cochransQ()">cochransQ</button>
+		<br>Input:
+		[[1,1,1,0], [0,1,0,1] ,[1,0,0,0], [0,1,1,1],[1,0,1,1], [1,0,1,0], [1,1,1,1],[0,0,1,1],[1,0,0,0], [1,1,1,0],[0,0,1,0],[0,1,1,1], [1,0,0,1], [1,0,0,1], [0,0,1,0] ,[1,1,0,0], [1,1,1,1], [0,0,0,0],[1,0,1,0] ,[0,0,0,0]]
+		<br>
+		<br>
+		<button type="button" onclick="fishersExactTest()">fishersExactTest</button>
+		<br>Input:
+		[[7,1],[3,9]]
+<br>
+<br>
+Result:
+<br>
+<p id="demo"></p>
+ 
+
+
+	</body>
+</html>

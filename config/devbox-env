@@ -1,0 +1,6 @@
+export EUPRIME_DJANGO_SECRET_KEY='avLKIuH6fw5\\Q|?0A$\\<xO].Qmh9b0\\oDX2q+hfSvssZaVnLv*'
+export EUPRIME_TOOLKIT_USERNAME='euprime'
+export EUPRIME_TOOLKIT_PASSWORD='euprime'
+export EUPRIME_TOOLKIT_DB_NAME='backend'
+export EUPRIME_TOOLKIT_DB_USERNAME='root'
+export EUPRIME_TOOLKIT_DB_PASSWORD='root'

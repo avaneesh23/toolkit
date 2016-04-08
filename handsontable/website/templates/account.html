@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load i18n %}
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static "handsontable/css/handsontable.full.min.css" %}" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <title>Euprime</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+    
+  </head>
+  <body>
+    <div class="row">
+  <div class="col-md-12">
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> {{ user }} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/account">My Account</a></li>
+            <li><a href="{{ security_logout }}">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+  </div>
+</div>
+
+<script src="{% static "js/lib/jquery-2.1.4.min.js" %}"></script>
+<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+<script src="{% static "handsontable/js/handsontable.full.min.js" %}"></script>
+<script type="text/javascript">
+  $(document).ready(function (){
+      $("#divButtons").click(function(){
+          $.ajax({
+            url: '/history',
+            success: function(msg) {
+                console.log(msg);
+                $('#demo').empty().append(JSON.stringify(msg));
+          }
+        });
+      });
+  });
+
+</script>
+{% block body_content %}
+	<div>
+    <p>
+      First Name:  {{ user }} 
+    </p>
+    <p>
+      Last Name: {{ user }}
+    </p>
+    <p>
+      Email ID: {{ user }}
+    </p>  	
+    <button id="divButtons" type="Button" name="submit" value="submit" class="btnSubmit">View History</button>
+  </div>	
+  <div>
+    <span id="demo"></span>
+  </div>
+
+      <!-- Site footer -->
+      <footer class="footer">
+        <p>&copy; Euprime 2015</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+ {% endblock %}

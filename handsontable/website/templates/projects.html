@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block body_content %}
+    <div class="container">
+
+      <!-- The justified navigation menu is meant for single line per list item.
+           Multiple lines will require custom code not provided by Bootstrap. -->
+      <div class="masthead">
+        <h3 class="text-muted">EUPRIME</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li><a href="{{ url_for('api.index') }}">Home</a></li>
+            <li class="active"><a href="#">Projects</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Downloads</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div>projects tab</div>
+
+      <!-- Site footer -->
+      <footer class="footer">
+        <p>&copy; Euprime 2015</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+   {% endblock %}
+   {% block scripts %}
+   <script src="{{ url_for('static', filename='js/projects.js') }}"></script>
+   {% endblock %}
+
+

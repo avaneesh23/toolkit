@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load i18n %}
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static "handsontable/css/handsontable.full.min.css" %}" type="text/css">
+
+    <title>Euprime</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
+
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+
+  </head>
+    
+  <body>
+    <!-- <div class="row"> -->
+ 
+<div id="section"
+ <div id="mainlist">
+    <li class="li dropdown" >
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">File</a>
+    <ul class="dropdown-menu">
+      <li><button class="astext" type="button" onclick="New()">New</button></li>
+      <li><button class="astext" type="button" onclick="Open()">Open</button></li>
+      <li><button class="astext" type="button" onclick="ImportFile()">Import file</button></li>
+      <li><a href="#">Download as..</a></li>
+      <li><a href="#">Print</a></li>
+      <li><button class="astext" type="button" onclick="LoadData()">Load Data</button></li>
+     
+    </ul>
+    </li>
+
+     <li class="li dropdown" >
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Edit</a>
+    <ul class="dropdown-menu">
+      <li><button class="astext" type="button" onclick="Undo()">Undo</button></li>
+      <li><button class="astext" type="button" onclick="Redo()">Redo</button></li>
+      <li><a href="#">Cut</a></li>
+      <li><a href="#">Paste</a></li>
+      <li><a href="#">Delete row</a></li>
+      <li><a href="#">Delete Coloumn</a></li>
+     
+    </ul>
+
+      </li>
+     <li class="li dropdown" >
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">View</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Freeze</a></li>
+      <li><a href="#">Full Screen</a></li>
+      
+     
+    </ul>
+
+
+      </li>
+    <li class="li dropdown" >
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Insert</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Comment</a></li>
+      <li><a href="#">Chart..</a></li>
+      <li><a href="#">Image..</a></li>
+      <li><a href="#">Link..</a></li>
+      <li><a href="#">Form..</a></li>
+      <li><a href="#">Drawing..</a></li>
+     
+    </ul>
+      </li>
+
+      <li class="li dropdown">
+      <a  class="dropdown-toggle" data-toggle="dropdown" data-target="#">Analyze</a>
+      <ul  class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+         <!--  <li><a tabindex="-1" href="#">Compare Means</a></li>
+            <li><a tabindex="-1" href="#">General Linear Model</a></li>
+            <li><a tabindex="-1" href="#">Generalized Linear Models</a></li>
+            <li><a tabindex="-1" href="#">Mixed Models</a></li>
+            <li><a tabindex="-1" href="#">Correlate</a></li> -->
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Compare Means</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">Means</a></li>
+               <li><a tabindex="-1" href="#">One-Sample T Test...</a></li>
+               <li><a tabindex="-1" href="#">Independent-Samples T Test...</a></li>
+               <li><a tabindex="-1" href="#">Paired-Samples T Test...</a></li>
+               <li><a tabindex="-1" href="#">One-Way ANOVA...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">General Linear Model</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">Univariate...</a></li>
+               <li><a tabindex="-1" href="#">Multivariate...</a></li>
+               <li><a tabindex="-1" href="#">Repeated Measures...</a></li>
+               <li role="separator" class="divider"></li>
+               <li><a tabindex="-1" href="#">Variance Components...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Generalized Linear Models</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">Generalized Linear Models...</a></li>
+               <li><a tabindex="-1" href="#">Generalized Estimating Equations...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Mixed Models</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">Linear...</a></li>
+               <li><a tabindex="-1" href="#">Generalized Linear...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Correlate</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">Bivariate...</a></li>
+               <li><a tabindex="-1" href="#">Partial...</a></li>
+               <li><a tabindex="-1" href="#">Distances...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Regression</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">Automatic Linear Modelling...</a></li>
+               <li><a tabindex="-1" href="#">Linear...</a></li>
+               <li><a tabindex="-1" href="#">Curve Estimation...</a></li>
+               <li><a tabindex="-1" href="#">Partial Least Squares...</a></li>
+               <li role="separator" class="divider"></li>
+               <li><a tabindex="-1" href="#">Binary Logistic...</a></li>
+               <li><a tabindex="-1" href="#">Multinomial Logistic...</a></li>
+               <li><a tabindex="-1" href="#">Ordinal...</a></li>
+               <li><a tabindex="-1" href="#">Probit...</a></li>
+               <li role="separator" class="divider"></li>
+               <li><a tabindex="-1" href="#">Nonlinear...</a></li>
+               <li><a tabindex="-1" href="#">Weight Estimation...</a></li>
+               <li><a tabindex="-1" href="#">2-Stage Least Squares...</a></li>
+               <li role="separator" class="divider"></li>
+               <li><a tabindex="-1" href="#">Optimal Scaling (CATREG)</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Loglinear</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">General...</a></li>
+               <li><a tabindex="-1" href="#">Logit...</a></li>
+               <li><a tabindex="-1" href="#">Model Selection...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Neural Networks</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">Multilayer Perceptron...</a></li>
+               <li><a tabindex="-1" href="#">Radial Basis Function...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Classify</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">TwoStep Cluster...</a></li>
+               <li><a tabindex="-1" href="#">K-Means Cluster...</a></li>
+               <li><a tabindex="-1" href="#">Hierarchical Cluster...</a></li>
+               <li role="separator" class="divider"></li>
+               <li><a tabindex="-1" href="#">Tree...</a></li>
+               <li><a tabindex="-1" href="#">Discriminant...</a></li>
+               <li role="separator" class="divider"></li>
+               <li><a tabindex="-1" href="#">Nearest Neighbor...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Dimension Reduction</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">Factor...</a></li>
+               <li><a tabindex="-1" href="#">Correspondence Analysis...</a></li>
+               <li><a tabindex="-1" href="#">Optimal Scaling...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Scale</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">Reliability Analysis...</a></li>
+               <li><a tabindex="-1" href="#">Multidimensional Unfolding (PREFSCAL)...</a></li>
+               <li><a tabindex="-1" href="#">Multidimensional Scaling (PROXSCAL)...</a></li>
+               <li><a tabindex="-1" href="#">Multidimensional Scaling (ALSCAL)...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Nonparametric Tests</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">One Sample...</a></li>
+               <li><a tabindex="-1" href="#">Independent Samples...</a></li>
+               <li><a tabindex="-1" href="#">Related Samples...</a></li>
+               <li><a tabindex="-1" href="#">Legacy Dialogs...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Forecasting</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">Create Models...</a></li>
+               <li><a tabindex="-1" href="#">Apply Models...</a></li>
+               <li role="separator" class="divider"></li>
+               <li><a tabindex="-1" href="#">Seasonal Decomposition...</a></li>
+               <li><a tabindex="-1" href="#">Spectral Analysis...</a></li>
+               <li role="separator" class="divider"></li>
+               <li><a tabindex="-1" href="#">Sequence Charts...</a></li>
+               <li><a tabindex="-1" href="#">Autocorrelations...</a></li>
+               <li><a tabindex="-1" href="#">Cross-Correlations...</a></li>
+            </ul>
+         </li>
+         <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">Survival</a>
+            <ul class="dropdown-menu">
+               <li><a tabindex="-1" href="#">Life Tables...</a></li>
+               <li><a tabindex="-1" href="#">Kalpan-Meier...</a></li>
+               <li><a tabindex="-1" href="#">Cox Regression...</a></li>
+               <li><a tabindex="-1" href="#">Cox w/ Time-Dep Cov...</a></li>
+            </ul>
+         </li>
+      </ul>
+    </li>
+      <li class="li dropdown" >
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Format</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Number</a></li>
+      <li><a href="#">Bold</a></li>
+      <li><a href="#">Italic</a></li>
+      <li><a href="#">Underline</a></li>
+      <li><a href="#">Strike through</a></li>
+      <li><a href="#">Merge Cells</a></li>
+      <li><a href="#">Align</a></li>
+      <li><a href="#">Text Wrapping</a></li>
+      <li><a href="#">Clear Formatting</a></li>
+     
+    </ul>
+      </li>
+        <li class="li dropdown" >
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Data</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Sort</a></li>
+      <li><a href="#">Filter values</a></li>
+      <li><a href="#">Validation</a></li>
+     
+    </ul>
+      </li>
+       <li class="li dropdown" >
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tools</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Create form</a></li>
+      <li><a href="#">Dictionary</a></li>
+     
+    </ul>
+      </li>
+      <!-- <li class="li " ><a href="#Add-ons">Add-ons</a></li> -->
+    <li class="li dropdown" >
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Help</a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Sheets Help</a></li>
+      <li><a href="#">Report a Problem</a></li>
+      <li><a href="#">Report</a></li>
+      
+     
+    </ul>
+  </li>
+   
+ <div>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> {{ username }} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/account">My Account</a></li>
+            <li><a href="{{ security_logout }}">Logout</a></li>
+          </ul>
+        </li>
+     
+ </ul>
+</div>
+</div>
+  {% block body_content %}
+  
+  {% endblock %}
+</div>
+  </body>
+
+<script src="{% static "js/lib/jquery-2.1.4.min.js" %}"></script>
+<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+<script src="{% static "handsontable/js/handsontable.full.min.js" %}"></script>
+<script type="text/javascript"></script>
+
+{% block scripts %}{% endblock %}
+
+</html>

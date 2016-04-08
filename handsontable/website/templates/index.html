@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block body_content %}
+{% load i18n %}
+{% load staticfiles %}
+<!-- <div class="dropdown moveButton"> -->
+  
+ <div class="htable">
+   <div id="handsontable">
+   </div>
+ </div>
+   <div id="divButtons" class="submitExcelButton">
+      <input type="Button" name="submit" value="Compute / Download" class="btnSubmit" />
+      </br>
+      </br>Console:
+      <pre id="demo"></pre>
+      </br>
+      <span id="exampleconsole"></span>
+   </div>
+  <!--  <div>
+      <input type="Button" value="View Graph" onclick="showImage()"/>
+   </div>
+   <div id = "contain" style = "float:right">
+      <img id = "img" style = "display:none" width = "500px" height = "400px">
+   </div>
+ -->
+<!-- Site footer -->
+<footer class="footer">
+   <p>&copy; Euprime 2016</p>
+</footer>
+</div> <!-- /container -->
+</body>
+  <script type="text/javascript">
+      function showImage() 
+      {
+        $('#img').remove();
+        $('#contain').html('<img id="img" class="imgClass">');
+          document.getElementById("img").style.display = "";
+          document.getElementById("img").src = imgPath();
+          $('#img').attr('src', $('#img').attr('src')+'?'+Math.random());
+      }
+      
+      function imgPath()
+      {
+      var y = "foo.png"
+      var x = "static/img/" + y;
+      return x
+      }
+   </script>
+{% endblock %}
+{% block scripts %}
+<script src="{% static "js/home.js" %}"></script>
+{% endblock %}
